@@ -7,13 +7,13 @@ A simplified, standardized, gulp-compatible build script to bundle a source file
 Using NPM
 
 ```
-npm install @geekhive/gulp-javascript-build --save-dev
+npm install geekhive/gulp-javascript-build --save-dev
 ```
 
 Using yarn
 
 ```
-yarn add @geekhive/gulp-javascript-build --dev
+yarn add geekhive/gulp-javascript-build --dev
 ```
 
 ## Usage
