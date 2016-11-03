@@ -24,14 +24,15 @@ Require `@geekhive/gulp-javascript-build` to access the build class.
 const JSBuild = require('@geekhive/gulp-javascript-build');
 ```
 
-### `new JSBuild(src, dest)`
+### `new JSBuild(src, dest, gulp)`
 
-Create a new `JSBuild` object by passing it source and destination paths for the file to bundle.
+Create a new `JSBuild` object by passing it source and destination paths for the file to bundle as well as a reference to `gulp`.
 
 ```
 const js = new JSBuild(
   `${__dirname}/assets/js/site.js`,
-  `${__dirname}/assets/js/site.min.js`);
+  `${__dirname}/assets/js/site.min.js`,
+  gulp);
 ```
 
 ### `JSBuild#build()`
