@@ -1,0 +1,19 @@
+{
+  "name": "@geekhive/gulp-javascript-build",
+  "version": "0.0.0",
+  "description": "A standardized gulp build for building JavaScript using Browserify and Babel",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeekHive/gulp-javascript-build.git"
+  },
+  "author": "GeekHive Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GeekHive/gulp-javascript-build/issues"
+  },
+  "homepage": "https://github.com/GeekHive/gulp-javascript-build#readme"
+}
