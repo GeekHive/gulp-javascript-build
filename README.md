@@ -35,6 +35,18 @@ const js = new JSBuild(
   gulp);
 ```
 
+The `dest` argument may also be an array of destinations.
+
+```
+const js = new JSBuild(
+    `${__dirname}/assets/js/site.js`,
+    [
+        `${__dirname}/assets/js/site.min.js`,
+        `${__dirname}/assets/example/alternative.js`
+    ],
+    gulp);
+```
+
 ### `JSBuild#build()`
 
 The `JSBuild#build` method can be passed directly to gulp as a build task:
