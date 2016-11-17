@@ -61,7 +61,8 @@ class JSBuild {
     watch() {
         this._bundler = watchify(this._bundler);
         this._bundler.on('update', () => {
-            console.log('-> bundling...');
+            const src = gutil.colors.cyan(this._src);
+            gutil.log(`Rebuilding '${src}'...`);
             this.build();
         });
 
