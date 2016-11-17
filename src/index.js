@@ -4,6 +4,7 @@ const buffer = require('vinyl-buffer');
 const console = require('console');
 const gutil = require('gulp-util');
 const path = require('path');
+const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
