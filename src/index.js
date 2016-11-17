@@ -13,7 +13,11 @@ const yargs = require('yargs').argv;
 class JSBuild {
     constructor(src, dest, gulp) {
         this._src = src;
-        this._dest = dest;
+        this._destinations =
+            Array.isArray(dest)
+                ? dest
+                : [dest];
+
         this._verbose = yargs.verbose;
         this._gulp = gulp;
 
@@ -30,21 +34,28 @@ class JSBuild {
     }
 
     build() {
-        return this._bundler
+        const stream = this._bundler
             .bundle()
             .on('error',
                 function (err) {
                     console.error(err);
                     this.emit('end');
                 })
-            .pipe(source(path.basename(this._dest)))
+            .pipe(source(path.basename(this._destinations[0])))
             .pipe(buffer())
             .pipe(sourcemaps.init({
                 loadMaps: true
             }))
             .pipe(this._verbose ? gutil.noop() : uglify())
-            .pipe(sourcemaps.write('./'))
-            .pipe(this._gulp.dest(path.dirname(this._dest)));
+            .pipe(sourcemaps.write('./'));
+
+        return this._destinations
+            .reduce(
+                (str, dest) =>
+                    str
+                        .pipe(rename(path.basename(dest)))
+                        .pipe(this._gulp.dest(path.dirname(dest))),
+                stream);
     }
 
     watch() {
