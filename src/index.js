@@ -2,6 +2,7 @@ const babel = require('babelify');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const console = require('console');
+const es2015 = require('babel-preset-es2015');
 const gutil = require('gulp-util');
 const path = require('path');
 const rename = require('gulp-rename');
@@ -27,7 +28,7 @@ class JSBuild {
             debug: true
         })
         .transform(babel.configure({
-            presets: ['es2015']
+            presets: [es2015]
         }));
 
         this.build = this.build.bind(this);
