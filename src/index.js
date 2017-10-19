@@ -40,7 +40,16 @@ class JSBuild {
             .bundle()
             .on('error',
                 function (err) {
-                    console.error(err);
+                    if (err && err.codeFrame) {
+                        gutil.log(
+                            `${gutil.colors.red(`Browserify error:`)}
+${gutil.colors.cyan(err.filename)} [${err.loc.line},${err.loc.column}]
+${err.codeFrame}
+${err.message}`
+                        );
+                    } else {
+                        gutil.log(err);
+                    }
                     this.emit('end');
                 })
             .pipe(source(path.basename(this._destinations[0])))
