@@ -4,6 +4,7 @@ const buffer = require('vinyl-buffer');
 const console = require('console');
 const es2015 = require('babel-preset-es2015');
 const gutil = require('gulp-util');
+const envify = require('loose-envify/custom');
 const path = require('path');
 const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
@@ -29,7 +30,13 @@ class JSBuild {
         })
         .transform(babel.configure({
             presets: [es2015]
-        }));
+        }))
+        .transform(envify({
+            NODE_ENV:
+                this._verbose
+                    ? 'development'
+                    : 'production'
+        }), {global: true});
 
         this.build = this.build.bind(this);
         this.watch = this.watch.bind(this);
