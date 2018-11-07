@@ -1,3 +1,7 @@
+# Warning: this project as been deprecated
+
+This tool has been deprecated internally but remains for posterity.  Project dependencies such as [watchify][watchify] are no longer actively maintained and we have received security alerts stemming from dependencies of dependencies that can not be addressed.  We actively encourage you to use another tool and will not provide support or accept liability if you use this.
+
 # GeekHive Gulp JavaScript Build
 
 A simplified, standardized, gulp-compatible build script to bundle a source file using Browserify, Babel, and Uglify.
@@ -66,3 +70,5 @@ gulp.task('watch:js', js.watch);
 ```
 
 Calling `js.watch` will start watching the source script and dependencies for changes and will rebuild the bundle when changes are made.
+
+[watchify]: https://www.npmjs.com/package/watchify
